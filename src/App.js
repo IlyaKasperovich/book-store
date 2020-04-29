@@ -1,27 +1,52 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { setBooks } from "./actions/books";
+import axios from "axios";
+
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+
+import Menu from "./components/Menu";
+import BookCard from "./components/BookCard";
 
 class App extends Component {
-  render() {
-    const { books } = this.props.books;
+  componentDidMount() {
     const { setBooks } = this.props;
-    const newBooks = [
-      {
-        id: 0,
-        title: "shopping cart",
-      },
-    ];
+    axios.get("/books.json").then(({ data }) => {
+      setBooks(data);
+    });
+  }
+
+  render() {
+    const { books, isReady } = this.props;
     return (
-      <div>
-        <h1>{books[0].title}</h1>
-        <button onClick={setBooks.bind(this, newBooks)}>SET NEW BOOKS</button>
-      </div>
+      <Container>
+        <Menu />
+        <Grid
+          id="items-container"
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          spacing={10}
+        >
+          {!isReady
+            ? "Загрузка"
+            : books.map((book, i) => (
+                <Grid className="item" key={i} item xs={4}>
+                  <BookCard {...book} />
+                </Grid>
+              ))}
+        </Grid>
+      </Container>
     );
   }
 }
 
-const mapStateToProps = (state) => ({ ...state });
+const mapStateToProps = ({ books }) => ({
+  books: books.items,
+  isReady: books.isReady,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   setBooks: (books) => dispatch(setBooks(books)),

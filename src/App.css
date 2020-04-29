@@ -1,0 +1,17 @@
+body {
+  margin-top: 40px;
+}
+
+.menu-logo {
+  width: 70%;
+  padding: 20px;
+}
+
+.menu-counter{
+  width: 20%;
+}
+
+#items-container{
+  margin-top: 30px;
+  width: 80%;
+}
