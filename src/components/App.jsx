@@ -19,24 +19,37 @@ class App extends Component {
   render() {
     const { books, isReady } = this.props;
     return (
-      <Container>
+      <Container className="main-container">
         <Menu />
-        <Filter />
         <Grid
           id="items-container"
           container
           direction="row"
           justify="center"
-          alignItems="flex-end"
+          alignItems="flex-start"
           spacing={10}
         >
-          {!isReady
-            ? "Загрузка"
-            : books.map((book, i) => (
-                <Grid key={i} item xs={3}>
-                  <BookCard {...book} />
-                </Grid>
-              ))}
+          <Grid item xs={9}>
+            <Grid
+              id="items-container"
+              container
+              direction="row"
+              justify="center"
+              alignItems="flex-end"
+              spacing={10}
+            >
+              {!isReady
+                ? "Загрузка"
+                : books.map((book, i) => (
+                    <Grid key={i} item xs={4}>
+                      <BookCard {...book} />
+                    </Grid>
+                  ))}
+            </Grid>
+          </Grid>
+          <Grid item xs={3}>
+            <Filter />
+          </Grid>
         </Grid>
       </Container>
     );

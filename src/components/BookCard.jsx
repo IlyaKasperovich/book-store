@@ -9,7 +9,7 @@ const BookCard = (book) => {
       <img className="book-img" src={image} alt={title}></img>
       <div className="book-title">{title}</div>
       <div className="book-author">{author}</div>
-      <div>{price}</div>
+      <div className="book-price">Цена: {price}</div>
       <Button
         onClick={addToCart.bind(this, book)}
         className="book-button"

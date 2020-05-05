@@ -3,8 +3,12 @@ body {
   font-family: Roboto, sans-serif;
 }
 
+#menu-container {
+  position: relative;
+}
+
 .menu-logo {
-  width: 60%;
+  width: 50%;
   padding: 20px;
 }
 
@@ -12,13 +16,38 @@ body {
   width: 20%;
 }
 
+.container-cart-items {
+  list-style-type: none;
+}
+
+#cart {
+  position: absolute;
+  right: 1%;
+  top: 15%;
+  width: 300px;
+  text-align: right;
+  margin-right: 3%;
+}
+
+.cart-item {
+  float: left;
+  width: 120%;
+  border: solid rgb(212, 210, 210) 1px;
+  margin-left: -20%;
+  border-radius: 5px;
+}
+
+#delete-btn {
+  margin: 2px 2px 2px 10px;
+}
+
 #items-container {
-  margin-top: 30px;
+  margin-top: 1px;
 }
 
 .book-img {
   text-align: center;
-  height: 350px;
+  height: 250px;
 }
 
 .book-button {
@@ -27,13 +56,15 @@ body {
 
 .book-card {
   text-align: center;
+  border: rgb(226, 224, 224) solid 1px;
+  border-radius: 5px;
 }
 
 .book-title {
   text-align: left;
   font-size: 22px;
   font-weight: 400;
-  padding: 10px 0;
+  padding: 10px 0 0 0;
 }
 
 .book-author {
@@ -42,13 +73,7 @@ body {
   padding-bottom: 10px;
 }
 
-#cart {
-  position: absolute;
-  right: 10%;
-  top: 10%;
-  width: 15%;
-}
-
-#menu-container{
-  position: relative;
+.book-price {
+  text-align: left;
+  padding-bottom: 10px;
 }

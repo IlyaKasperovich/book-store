@@ -8,12 +8,10 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 
 const CartComponent = ({ title, removeFromCart, id }) => (
-  <div>
-    <span>
-      {title}
-      <Button onClick={removeFromCart.bind(this, id)}>Удалить</Button>
-    </span>
-  </div>
+  <li className="cart-item">
+    <span>{title}</span>
+    <Button id="delete-btn" variant="contained" color="secondary" onClick={removeFromCart.bind(this, id)}>Удалить</Button>
+  </li>
 );
 
 const Menu = ({ totalPrice, count, items }) => (
@@ -36,7 +34,7 @@ const Menu = ({ totalPrice, count, items }) => (
             </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            {items.map((book) => CartComponent(book))}
+            <ul className="container-cart-items">{items.map((book) => CartComponent(book))}</ul>
           </ExpansionPanelDetails>
         </ExpansionPanel>
       </div>
