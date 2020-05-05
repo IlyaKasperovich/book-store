@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { setBooks } from "./actions/books";
 import axios from "axios";
 
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 
-import Menu from "./components/Menu";
-import BookCard from "./components/BookCard";
+import BookCard from "../containers/BookCard";
+import Filter from "../containers/Filter";
+import Menu from "../containers/Menu";
 
 class App extends Component {
   componentDidMount() {
@@ -22,18 +21,19 @@ class App extends Component {
     return (
       <Container>
         <Menu />
+        <Filter />
         <Grid
           id="items-container"
           container
           direction="row"
           justify="center"
-          alignItems="center"
+          alignItems="flex-end"
           spacing={10}
         >
           {!isReady
             ? "Загрузка"
             : books.map((book, i) => (
-                <Grid className="item" key={i} item xs={4}>
+                <Grid key={i} item xs={3}>
                   <BookCard {...book} />
                 </Grid>
               ))}
@@ -43,13 +43,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ books }) => ({
-  books: books.items,
-  isReady: books.isReady,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  setBooks: (books) => dispatch(setBooks(books)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

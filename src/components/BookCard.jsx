@@ -1,42 +1,26 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
 
-const BookCard = ({ title, author, image, price }) => (
-  <Card>
-    <CardActionArea>
-      <CardMedia 
-        className="card-img"
-        component="img"
-        alt="Contemplative Reptile"
-        height="50%"
-        image={image}
-        title={title}
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="h2">
-          {title}
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {author}
-        </Typography>
-      </CardContent>
-    </CardActionArea>
-    <CardActions>
-      <Button size="small" color="primary">
-        {price}
+import Button from "@material-ui/core/Button";
+
+const BookCard = (book) => {
+  const { title, author, image, price, addToCart, addedCount } = book;
+  return (
+    <div className="book-card">
+      <img className="book-img" src={image} alt={title}></img>
+      <div className="book-title">{title}</div>
+      <div className="book-author">{author}</div>
+      <div>{price}</div>
+      <Button
+        onClick={addToCart.bind(this, book)}
+        className="book-button"
+        variant="contained"
+        color="primary"
+      >
+        Добавить в карзину {addedCount > 0 && `(${addedCount})`}
       </Button>
-      <Button size="small" color="primary">
-        В корзину
-      </Button>
-    </CardActions>
-  </Card>
-);
+      
+    </div>
+  );
+};
 
 export default BookCard;

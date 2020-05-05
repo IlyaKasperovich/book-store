@@ -1,17 +1,54 @@
 body {
   margin-top: 40px;
+  font-family: Roboto, sans-serif;
 }
 
 .menu-logo {
-  width: 70%;
+  width: 60%;
   padding: 20px;
 }
 
-.menu-counter{
+.menu-counter {
   width: 20%;
 }
 
-#items-container{
+#items-container {
   margin-top: 30px;
-  width: 80%;
+}
+
+.book-img {
+  text-align: center;
+  height: 350px;
+}
+
+.book-button {
+  width: 100%;
+}
+
+.book-card {
+  text-align: center;
+}
+
+.book-title {
+  text-align: left;
+  font-size: 22px;
+  font-weight: 400;
+  padding: 10px 0;
+}
+
+.book-author {
+  text-align: left;
+  color: gray;
+  padding-bottom: 10px;
+}
+
+#cart {
+  position: absolute;
+  right: 10%;
+  top: 10%;
+  width: 15%;
+}
+
+#menu-container{
+  position: relative;
 }
