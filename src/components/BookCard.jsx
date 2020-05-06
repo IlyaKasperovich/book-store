@@ -16,7 +16,7 @@ const BookCard = (book) => {
         variant="contained"
         color="primary"
       >
-        Добавить в карзину {addedCount > 0 && `(${addedCount})`}
+        Добавить в корзину {addedCount > 0 && `(${addedCount})`}
       </Button>
       
     </div>
