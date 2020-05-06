@@ -11,9 +11,12 @@ import Menu from "../containers/Menu";
 class App extends Component {
   componentDidMount() {
     const { setBooks } = this.props;
-    axios.get("/books.json").then(({ data }) => {
-      setBooks(data);
-    });
+    // axios.get("../books.json").then(({ data }) => {
+    //   setBooks(data);
+    // });
+
+    let books = require("../books.json");
+    setBooks(books);
   }
 
   render() {
